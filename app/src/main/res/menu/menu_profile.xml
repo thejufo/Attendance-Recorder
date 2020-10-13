@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_mark"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_mark"
+        android:title="Mark">
+
+        <menu>
+            <item
+                android:id="@+id/action_bold"
+                android:title="BOLD" />
+            <item
+                android:id="@+id/action_red"
+                android:title="RED" />
+            <item
+                android:id="@+id/action_blue"
+                android:title="BLUE" />
+            <item
+                android:id="@+id/action_none"
+                android:title="NONE" />
+        </menu>
+    </item>
+
+    <item android:id="@+id/action_archive"
+        app:showAsAction="always"
+        android:title="Toggle Archive"/>
+
+    <item android:id="@+id/action_change_klass"
+        android:title="Change Class"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_delete"
+        android:title="Delete"
+        app:showAsAction="never"/>
+</menu>

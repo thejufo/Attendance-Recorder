@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/absent"
+        android:title="Absent" />
+    <item android:title="Abs after br" />
+    <item android:title="@string/status_excused_abs" />
+    <item android:title="@string/status_no_uniform" />
+    <item android:title="Late before br" />
+    <item android:title="Late after br" />
+    <item android:title="(Late)" />
+    <item android:title="None" />
+</menu>

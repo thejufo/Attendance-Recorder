@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Attendance Recorder</string>
+    <string name="status_no_uniform">No uniform</string>
+    <string name="status_excused_abs">Excused abs</string>
+</resources>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="index"
+            type="java.lang.Integer" />
+
+        <variable
+            name="student"
+            type="com.glunode.api.Student" />
+
+        <variable
+            name="listener"
+            type="com.glunode.abuhurerira.students.StudentsAdapter.StudentClickListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(view) -> listener.onStudentClick(student)}"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="2dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:strokeWidth="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/size_medium">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="32dp"
+                tools:src="@drawable/no_image2"
+                loadAvatar="@{student}"
+                android:layout_marginEnd="@dimen/size_medium"
+                android:layout_height="32dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/size_medium"
+                android:text="@{String.valueOf(student.no)}"
+                android:textAppearance="?attr/textAppearanceListItem"
+                tools:text="1" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/size_medium"
+                setMarkVisible="@{student.mark}"
+                android:layout_weight="1"
+                android:text="@{student.name}"
+                android:textAppearance="?attr/textAppearanceListItem"
+                tools:text="NO_NAME" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/size_medium"
+                android:text="@{student.klass.name}"
+                android:textAppearance="?attr/textAppearanceListItemSecondary"
+                tools:text="Form one" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

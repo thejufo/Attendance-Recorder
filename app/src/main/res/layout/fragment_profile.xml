@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="student"
+            type="com.glunode.api.Student" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#E9EEF5">
+
+            <ImageView
+                android:id="@+id/btn_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="5dp"
+                android:src="@drawable/ic_message"
+                app:layout_constraintBottom_toBottomOf="@id/avatar_image"
+                app:layout_constraintEnd_toStartOf="@id/avatar_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/avatar_image" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/avatar_image"
+                loadAvatar="@{student}"
+                android:layout_width="156dp"
+                android:layout_height="156dp"
+                android:layout_marginTop="52dp"
+                app:civ_border_color="@color/colorWhite"
+                app:civ_border_width="8dp"
+                app:civ_circle_background_color="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/avatar" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_avatar_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_camera"
+                app:elevation="0dp"
+                app:layout_constraintBottom_toBottomOf="@id/avatar_image"
+                app:layout_constraintEnd_toEndOf="@id/avatar_image" />
+
+            <ImageView
+                android:id="@+id/btn_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="5dp"
+                android:src="@drawable/ic_call"
+                app:layout_constraintBottom_toBottomOf="@id/avatar_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/avatar_image"
+                app:layout_constraintTop_toTopOf="@id/avatar_image" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/avatar_image">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Name:"
+                    android:textAllCaps="true"
+                    android:textColor="#020044"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/name_text"
+                    setMarkVisible="@{student.mark}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:alpha="0.7"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@{student.name}"
+                    android:textAllCaps="true"
+                    android:textColor="#020044"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    tools:text="Abdilfatah Abdullah Muse" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Phones:"
+                    android:textAllCaps="true"
+                    android:textColor="#020044"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:alpha="0.7"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@{student.phoneNumber1.toString()}"
+                    android:textAllCaps="true"
+                    android:textColor="#020044"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    tools:text="0634104005" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:alpha="0.7"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@{student.phoneNumber2.toString()}"
+                    android:textAllCaps="true"
+                    android:textColor="#020044"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    tools:text="0659745935" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:alpha="0.7"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@{student.phoneNumber3.toString()}"
+                    android:textAllCaps="true"
+                    android:textColor="#020044"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    tools:text="0636343424" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

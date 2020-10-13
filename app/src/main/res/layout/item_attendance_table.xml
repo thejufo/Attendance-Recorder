@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="attendance"
+            type="com.glunode.api.Attendance" />
+
+        <variable
+            name="listener"
+            type="com.glunode.abuhurerira.attendance.AttendanceAdapter.AttendanceTableListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{(view) -> listener.onStudentNameClick(view, attendance)}"
+            android:layout_above="@id/divider"
+            android:gravity="center_vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                loadAvatar="@{attendance.student}"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_weight="0.3"
+                tools:src="@drawable/no_image2" />
+
+            <TextView
+                android:id="@+id/stud_id"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".4"
+                android:gravity="center"
+                android:text="@{String.valueOf(attendance.student.no)}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                tools:text="1" />
+
+            <TextView
+                android:id="@+id/stud_name"
+                setMarkVisible="@{attendance.student.mark}"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="start|center_vertical"
+                android:padding="10dp"
+                android:text="@{attendance.student.name}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                tools:text="Faysal Abdi Nur" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/separatorColor" />
+
+            <TextView
+                android:id="@+id/stud_status"
+                filterAttColor="@{attendance.status}"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:onClick="@{(view) -> listener.onStatusClick(view, attendance)}"
+                android:padding="10dp"
+                android:text="@{attendance.status}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/separatorColor" />
+    </RelativeLayout>
+</layout>
